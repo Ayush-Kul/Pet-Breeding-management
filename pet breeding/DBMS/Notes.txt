@@ -1,0 +1,9 @@
+Add trigger on insert pets male and female 2 tables
+CREATE TRIGGER `Male_pets` BEFORE INSERT ON `pets` FOR EACH ROW if(NEW.Gender ="Male") then INSERT INTO m_pet SET pet_id = NEW.pet_id; end if
+CREATE TRIGGER `Female_pets` AFTER INSERT ON `pets` FOR EACH ROW if(NEW.Gender ="Female") then INSERT INTO m_pet SET pet_id = NEW.pet_id; end if
+Add procedure on manage breeding which shows the male and female tables
+
+
+Trigger on update of appointment table of log table
+
+CREATE TRIGGER `App_log` AFTER UPDATE ON `appointment` FOR EACH ROW INSERT into app_log(App_id,Vet_id) values (OLD.App_id,NEW.Vet_id)
